@@ -14,19 +14,15 @@ function bonzaiBackgroundColor() {
     if (seaRoute.checked == true && highPressureRoute.checked == true) {
         console.log("Both are checked");
         document.body.style.backgroundColor = "purple";
-
     } else if (seaRoute.checked == true && highPressureRoute.checked == false) {
         console.log("sea is checked");
         document.body.style.backgroundColor = "blue";
-
     } else if (highPressureRoute.checked == true && seaRoute.checked == false) {
         console.log("high Pressure is checked");
         document.body.style.backgroundColor = "red";
-
     } else {
         console.log("none are checked");
         document.body.style.backgroundColor = "green";
-
     }
 }
 
@@ -64,4 +60,8 @@ function distanceCalculator() {
             }
         }
     }
+    priceFinal = distanceFinal * 0.04;
+    console.log(priceFinal);
+    priceFinal = 14.95 + priceFinal;
+    price.innerText = priceFinal;
 }
