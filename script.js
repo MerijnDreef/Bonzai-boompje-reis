@@ -40,7 +40,6 @@ function distanceCalculator() {
             var distanceFinal = 0;
             // var i = 0
             console.log("I have passed the 0");
-            console.log(seaRoute.checked);
             if (seaRoute.checked == true && highPressureRoute.checked == true) {
                 console.log("Both are checked calculating");
                 distanceFinal = distanceCalculate * (2 + 2 * 0.9 + 2 * 0.7);
@@ -63,5 +62,5 @@ function distanceCalculator() {
     priceFinal = distanceFinal * 0.04;
     console.log(priceFinal);
     priceFinal = 14.95 + priceFinal;
-    price.innerText = priceFinal;
+    price.innerText = priceFinal + " euro";
 }
