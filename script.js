@@ -3,6 +3,7 @@ var seaRoute = document.getElementById("sea");
 var highPressureRoute = document.getElementById("highPressure");
 var calculate = document.getElementById("calculate");
 var price = document.getElementById("price");
+var gram = document.getElementById("gram");
 
 document.body.style.backgroundColor = "green";
 calculate.setAttribute('onclick', 'distanceCalculator()');
@@ -12,16 +13,12 @@ highPressureRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 
 function bonzaiBackgroundColor() {
     if (seaRoute.checked == true && highPressureRoute.checked == true) {
-        console.log("Both are checked");
         document.body.style.backgroundColor = "purple";
     } else if (seaRoute.checked == true && highPressureRoute.checked == false) {
-        console.log("sea is checked");
         document.body.style.backgroundColor = "blue";
     } else if (highPressureRoute.checked == true && seaRoute.checked == false) {
-        console.log("high Pressure is checked");
         document.body.style.backgroundColor = "red";
     } else {
-        console.log("none are checked");
         document.body.style.backgroundColor = "green";
     }
 }
@@ -47,9 +44,11 @@ function distanceCalculator() {
 
             } else if (seaRoute.checked == true && highPressureRoute.checked == false) {
                 console.log("sea is checked calculating");
+                distanceFinal = distanceCalculate * (2 + 2 * 0.7);
 
             } else if (highPressureRoute.checked == true && seaRoute.checked == false) {
                 console.log("high Pressure is checked calculating");
+                distanceFinal = distanceCalculate * (2 + 2 * 0.9);
 
             } else {
                 console.log("none are checked calculating");
@@ -57,10 +56,18 @@ function distanceCalculator() {
                 console.log(distanceFinal);
 
             }
+
         }
     }
-    priceFinal = distanceFinal * 0.04;
-    console.log(priceFinal);
-    priceFinal = 14.95 + priceFinal;
+    console.log("Calculate check" + distanceCalculate);
+    if (distanceCalculate > 0) {
+        priceFinal = distanceFinal * 0.04;
+        priceFinal = 14.95 + priceFinal;
+    } else {
+        priceFinal = 14.95;
+        distanceFinal = 0;
+    }
+
+    gram.innerText = distanceFinal + " gram"
     price.innerText = priceFinal + " euro";
 }
