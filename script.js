@@ -9,6 +9,7 @@ document.body.style.backgroundColor = "green";
 calculate.setAttribute('onclick', 'distanceCalculator()');
 seaRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 highPressureRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
+kilometersAmount.setAttribute('onchange', 'goldenBorder()');
 
 
 function bonzaiBackgroundColor() {
@@ -20,6 +21,16 @@ function bonzaiBackgroundColor() {
         document.body.style.backgroundColor = "red";
     } else {
         document.body.style.backgroundColor = "green";
+    }
+}
+
+function goldenBorder(){
+    console.log("I have been activated")
+    if(kilometersAmount.value > 2000) {
+        console.log("It is above 2000");
+        kilometersAmount.style.border ="gold solid 4px";
+    } else {
+        kilometersAmount.style.border = "none";
     }
 }
 
