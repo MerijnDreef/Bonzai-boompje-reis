@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
 var con = mysql.createConnection({
   host: "127.0.0.1",
@@ -7,11 +7,10 @@ var con = mysql.createConnection({
   database: "bonzai_boom_reis"
 });
 
-con.connect(function(err) {
+con.connect(function (err) {
   if (err) throw err;
   console.log("Connected!");
-  con.query("SELECT * FROM orders", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-  });
 });
+
+module.exports = con;
+

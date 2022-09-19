@@ -11,6 +11,9 @@ seaRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 highPressureRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 kilometersAmount.setAttribute('onchange', 'goldenBorder()');
 
+var name = "Johan";
+
+addOrder(name);
 
 function bonzaiBackgroundColor() {
     if (seaRoute.checked == true && highPressureRoute.checked == true) {
