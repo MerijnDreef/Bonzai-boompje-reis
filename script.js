@@ -11,9 +11,8 @@ seaRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 highPressureRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 kilometersAmount.setAttribute('onchange', 'goldenBorder()');
 
-var name = "Johan";
-
-addOrder(name);
+// var TestingName = "Johan";
+console.log(allOrders);
 
 function bonzaiBackgroundColor() {
     if (seaRoute.checked == true && highPressureRoute.checked == true) {
@@ -73,7 +72,7 @@ function distanceCalculator() {
 
         }
     }
-    console.log("Calculate check" + distanceCalculate);
+    console.log("Calculate check " + distanceCalculate);
     if (distanceCalculate > 0) {
         priceFinal = distanceFinal * 0.04;
         priceFinal = 14.95 + priceFinal;
