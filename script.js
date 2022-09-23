@@ -80,7 +80,8 @@ function distanceCalculator() {
         priceFinal = 14.95;
         distanceFinal = 0;
     }
-
+    priceFinal = priceFinal.toFixed(2);
+    distanceFinal = Math.ceil(distanceFinal);
     gram.innerText = distanceFinal + " gram"
     price.innerText = priceFinal + " euro";
 }
