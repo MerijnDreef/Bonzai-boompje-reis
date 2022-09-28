@@ -15,7 +15,8 @@ database.query("SELECT * FROM orders", function (err, result, fields) {
 
 });
 
-var customerName = "Rober Genneweg";
+var customerName = TestingName;
+console.log(customerName + " Boi");
 
 database.query("INSERT INTO orders (customer_name, customer_id, order_price, order_gram) VALUES ('" + customerName + "', '" + customerID + "', '" + orderPrice + "', '" + orderGram + "')", function (err, result) {
     if (err) throw err;
