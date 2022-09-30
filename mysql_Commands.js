@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require('express');
 const database = require('./db_connection');
 let mysql = require('mysql');
 
@@ -12,19 +12,18 @@ database.query("SELECT * FROM orders", function (err, result, fields) {
     // console.log(fields);
     allOrders = result;
     console.log(allOrders + " A vibe check");
-
 });
+export default allOrders;
+// var customerName = TestingName;
+// console.log(customerName + " Boi");
 
-var customerName = TestingName;
-console.log(customerName + " Boi");
+// database.query("INSERT INTO orders (customer_name, customer_id, order_price, order_gram) VALUES ('" + customerName + "', '" + customerID + "', '" + orderPrice + "', '" + orderGram + "')", function (err, result) {
+//     if (err) throw err;
+//     console.log(result);
+//     // allOrders = result;
+//     // console.log(allOrders + " A vibe check");
 
-database.query("INSERT INTO orders (customer_name, customer_id, order_price, order_gram) VALUES ('" + customerName + "', '" + customerID + "', '" + orderPrice + "', '" + orderGram + "')", function (err, result) {
-    if (err) throw err;
-    console.log(result);
-    // allOrders = result;
-    // console.log(allOrders + " A vibe check");
-
-});
+// });
 // console.log(TestingName);
 console.log(allOrders + " A vibe check part 2");
 

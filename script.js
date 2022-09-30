@@ -4,6 +4,7 @@ var highPressureRoute = document.getElementById("highPressure");
 var calculate = document.getElementById("calculate");
 var price = document.getElementById("price");
 var gram = document.getElementById("gram");
+// import {allOrders} from './mysql_Commands.js'
 
 document.body.style.backgroundColor = "green";
 calculate.setAttribute('onclick', 'distanceCalculator()');
@@ -13,6 +14,7 @@ kilometersAmount.setAttribute('onchange', 'goldenBorder()');
 
 var TestingName = "Johan";
 console.log(allOrders);
+// console.log(customers);
 
 function bonzaiBackgroundColor() {
     if (seaRoute.checked == true && highPressureRoute.checked == true) {
