@@ -1,19 +1,25 @@
-const express = require('express');
-const database = require('./db_connection');
-let mysql = require('mysql');
+// const express = require('express');
+const database = require('./db_connection.js');
+const mysql = require('mysql');
 
 var connection = mysql.createConnection(database);
 
-const app = express();
+// const app = express();
 var allOrders = "";
-database.query("SELECT * FROM orders", function (err, result, fields) {
-    if (err) throw err;
-    console.log(result);
-    // console.log(fields);
-    allOrders = result;
-    console.log(allOrders + " A vibe check");
-});
-export default allOrders;
+
+// make this code into a function
+// return all orders
+export function getAllOrders() {
+    database.query("SELECT * FROM orders", function (err, result, fields) {
+        if (err) throw err;
+        console.log(result);
+        // console.log(fields);
+        allOrders = result;
+        console.log(allOrders + " A vibe check");
+    });
+    return allOrders;
+}
+// export default allOrders;
 // var customerName = TestingName;
 // console.log(customerName + " Boi");
 

@@ -1,19 +1,21 @@
+// import { getAllOrders } from './mysql_Commands.js';
+
 var kilometersAmount = document.getElementById("travelLength");
 var seaRoute = document.getElementById("sea");
 var highPressureRoute = document.getElementById("highPressure");
 var calculate = document.getElementById("calculate");
 var price = document.getElementById("price");
 var gram = document.getElementById("gram");
-// import {allOrders} from './mysql_Commands.js'
 
 document.body.style.backgroundColor = "green";
 calculate.setAttribute('onclick', 'distanceCalculator()');
 seaRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 highPressureRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 kilometersAmount.setAttribute('onchange', 'goldenBorder()');
-
-var TestingName = "Johan";
-console.log(allOrders);
+// var allOrders = getAllOrders();
+// var TestingName = "Johan";
+// call the method and put content in variable.
+// console.log(allOrders);
 // console.log(customers);
 
 function bonzaiBackgroundColor() {
