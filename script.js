@@ -1,11 +1,14 @@
 // import { getAllOrders } from './mysql_Commands.js';
 
+// const e = require("express");
+
 var kilometersAmount = document.getElementById("travelLength");
 var seaRoute = document.getElementById("sea");
 var highPressureRoute = document.getElementById("highPressure");
 var calculate = document.getElementById("calculate");
 var price = document.getElementById("price");
 var gram = document.getElementById("gram");
+var layoverTotal = document.getElementsByClassName("select2Layover");
 
 document.body.style.backgroundColor = "green";
 calculate.setAttribute('onclick', 'distanceCalculator()');
@@ -17,6 +20,7 @@ kilometersAmount.setAttribute('onchange', 'goldenBorder()');
 // call the method and put content in variable.
 // console.log(allOrders);
 // console.log(customers);
+
 
 function bonzaiBackgroundColor() {
     if (seaRoute.checked == true && highPressureRoute.checked == true) {
@@ -43,13 +47,9 @@ function goldenBorder(){
 function distanceCalculator() {
     var initialDistance = kilometersAmount.value * 1;
     if (initialDistance > 232) {
-        console.log(initialDistance);
         var distanceCalculate = initialDistance - 232;
-        console.log(distanceCalculate);
         distanceCalculate = distanceCalculate / 62;
-        console.log(distanceCalculate);
         distanceCalculate = Math.floor(distanceCalculate);
-        console.log(distanceCalculate);
         if (distanceCalculate > 0) {
             var distanceFinal = 0;
             // var i = 0
@@ -57,7 +57,6 @@ function distanceCalculator() {
             if (seaRoute.checked == true && highPressureRoute.checked == true) {
                 console.log("Both are checked calculating");
                 distanceFinal = distanceCalculate * (2 + 2 * 0.9 + 2 * 0.7);
-                console.log(distanceFinal);
 
             } else if (seaRoute.checked == true && highPressureRoute.checked == false) {
                 console.log("sea is checked calculating");
@@ -70,7 +69,6 @@ function distanceCalculator() {
             } else {
                 console.log("none are checked calculating");
                 distanceFinal = distanceCalculate * 2;
-                console.log(distanceFinal);
 
             }
 
@@ -84,6 +82,13 @@ function distanceCalculator() {
         priceFinal = 14.95;
         distanceFinal = 0;
     }
+var value = layoverTotal.value;
+console.log(layoverTotal.options[layoverTotal.selectedIndex].value);
+    // if(layoverTotal[]){
+
+    // } else if() {
+
+    // }
     priceFinal = priceFinal.toFixed(2);
     distanceFinal = Math.ceil(distanceFinal);
     gram.innerText = distanceFinal + " gram"
