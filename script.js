@@ -8,7 +8,8 @@ var highPressureRoute = document.getElementById("highPressure");
 var calculate = document.getElementById("calculate");
 var price = document.getElementById("price");
 var gram = document.getElementById("gram");
-var layoverTotal = document.getElementsByClassName("select2Layover");
+
+var layoversAmerica = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
 
 document.body.style.backgroundColor = "green";
 calculate.setAttribute('onclick', 'distanceCalculator()');
@@ -20,7 +21,6 @@ kilometersAmount.setAttribute('onchange', 'goldenBorder()');
 // call the method and put content in variable.
 // console.log(allOrders);
 // console.log(customers);
-
 
 function bonzaiBackgroundColor() {
     if (seaRoute.checked == true && highPressureRoute.checked == true) {
@@ -34,17 +34,37 @@ function bonzaiBackgroundColor() {
     }
 }
 
-function goldenBorder(){
+function goldenBorder() {
     console.log("I have been activated")
-    if(kilometersAmount.value > 2000) {
+    if (kilometersAmount.value > 2000) {
         console.log("It is above 2000");
-        kilometersAmount.style.border ="gold solid 4px";
+        kilometersAmount.style.border = "gold solid 4px";
     } else {
         kilometersAmount.style.border = "none";
     }
 }
 
 function distanceCalculator() {
+    // var layoverTotal = document.getElementById("select2Layover");
+    var layoverTotal = $('#select2Layover').find(':selected');
+    var layoverAmount = 0;
+    if (layoverTotal.length > 0) {
+        for (var o = 0; o < layoverTotal.length; o++) {
+            console.log(layoverTotal[o]);
+            // if (layoverTotal[o].value == "AL" || layoverTotal[o].value == "WY") {
+            if (layoversAmerica.includes(layoverTotal[o].value)) {
+
+                console.log("American stop and plus 3.36");
+                layoverAmount = layoverAmount + 3.36;
+            } else {
+                console.log("Not American stop and plus 2.19");
+                layoverAmount = layoverAmount + 2.19;
+            }
+            console.log(layoverAmount);
+        }
+        console.log(layoverAmount + " total price");
+    }
+
     var initialDistance = kilometersAmount.value * 1;
     if (initialDistance > 232) {
         var distanceCalculate = initialDistance - 232;
@@ -82,8 +102,10 @@ function distanceCalculator() {
         priceFinal = 14.95;
         distanceFinal = 0;
     }
-var value = layoverTotal.value;
-console.log(layoverTotal.options[layoverTotal.selectedIndex].value);
+    // var value = layoverTotal.value;
+    // console.log(layoverTotal.options[layoverTotal.selectedIndex].value);
+    // console.log(layoverTotal.data);
+
     // if(layoverTotal[]){
 
     // } else if() {
