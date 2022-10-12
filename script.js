@@ -51,7 +51,6 @@ function distanceCalculator() {
     if (layoverTotal.length > 0) {
         for (var o = 0; o < layoverTotal.length; o++) {
             console.log(layoverTotal[o]);
-            // if (layoverTotal[o].value == "AL" || layoverTotal[o].value == "WY") {
             if (layoversAmerica.includes(layoverTotal[o].value)) {
 
                 console.log("American stop and plus 3.36");
@@ -72,7 +71,6 @@ function distanceCalculator() {
         distanceCalculate = Math.floor(distanceCalculate);
         if (distanceCalculate > 0) {
             var distanceFinal = 0;
-            // var i = 0
             console.log("I have passed the 0");
             if (seaRoute.checked == true && highPressureRoute.checked == true) {
                 console.log("Both are checked calculating");
@@ -106,11 +104,12 @@ function distanceCalculator() {
     // console.log(layoverTotal.options[layoverTotal.selectedIndex].value);
     // console.log(layoverTotal.data);
 
-    // if(layoverTotal[]){
+    if (layoverAmount != 0) {
+        console.log(priceFinal);
+        priceFinal = priceFinal + layoverAmount;
+        console.log(priceFinal);
+    }
 
-    // } else if() {
-
-    // }
     priceFinal = priceFinal.toFixed(2);
     distanceFinal = Math.ceil(distanceFinal);
     gram.innerText = distanceFinal + " gram"
