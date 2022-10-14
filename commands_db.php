@@ -1,8 +1,6 @@
 <?php
 require "connectionDb.php";
 
-echo "Big bois";
-
 
 function getAllOrders(){
     $conn = dbConnect();
