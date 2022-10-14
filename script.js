@@ -21,6 +21,8 @@ kilometersAmount.setAttribute('onchange', 'goldenBorder()');
 // call the method and put content in variable.
 // console.log(allOrders);
 // console.log(customers);
+// var orders = getAllOrders();
+// console.log(orders);
 
 function bonzaiBackgroundColor() {
     if (seaRoute.checked == true && highPressureRoute.checked == true) {
