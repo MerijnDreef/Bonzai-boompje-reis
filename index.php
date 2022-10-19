@@ -1,6 +1,7 @@
 <?php
 include "commands_db.php";
 
+$list = getAllOrders();
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +19,14 @@ include "commands_db.php";
 </head>
 
 <body>
+    <?php
+    foreach($list as $lists){
+        echo $lists['customer_id'];
+        echo "<br>";
+        echo $lists['customer_name'];
+        echo "<br>";
+    }
+    ?>
     <div>
         <label for="customerInsert">Klant naam/Klant ID</label>
         <input type="text" id="customerInsert" name="customerInsert">
