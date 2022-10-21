@@ -2,6 +2,21 @@
 include "commands_db.php";
 
 $list = getAllOrders();
+
+function orderCreate($customerName, $price) {
+    // if($customerName != "") {
+    // // $result = createOrder($customerName, $price, $gram);
+    // echo "it has access";
+    // } else {
+    //     echo "<p> Now hold up there buckaroo, looks like you are missing something </p> <br>";
+    // }
+        echo "boy";
+}
+
+if(array_key_exists('submit', $_POST)) {
+    orderCreate($_POST['customerInsert'], $_POST['priceHidden']);
+ }
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +43,8 @@ $list = getAllOrders();
     }
     ?>
     <div>
+        <form name="bonzaiReisForm" id="bonzaiReisForm" method="POST" action="index.php">
+            <input type="text" id="priceHidden" />
         <label for="customerInsert">Klant naam/Klant ID</label>
         <input type="text" id="customerInsert" name="customerInsert">
         <br>
@@ -196,7 +213,8 @@ $list = getAllOrders();
             <!-- <option value=""></option> -->
         </select>
         <br>
-        <button id="calculate">Calculeren</button>
+        <input type="submit" name="submit" id="calculate" value="Calculeren" />
+    </form>
     </div>
     <div>
         <p id="price"></p>

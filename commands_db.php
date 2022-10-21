@@ -10,3 +10,8 @@ function getAllOrders(){
     $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
     return $stmt->fetchAll();
 }
+
+// function createOrder(){
+//     $conn = dbConnect();
+//     $stmt = $conn->prepare("INSERT INTO orders");
+// }
