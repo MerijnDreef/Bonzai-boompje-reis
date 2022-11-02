@@ -3,19 +3,21 @@ include "commands_db.php";
 
 $list = getAllOrders();
 
-function orderCreate($customerName, $price) {
+// function orderCreate($customerName, $price) {
     // if($customerName != "") {
     // // $result = createOrder($customerName, $price, $gram);
     // echo "it has access";
     // } else {
     //     echo "<p> Now hold up there buckaroo, looks like you are missing something </p> <br>";
     // }
-        echo "boy";
-}
+//         echo "boy";
+// }
 
-if(array_key_exists('submit', $_POST)) {
-    orderCreate($_POST['customerInsert'], $_POST['priceHidden']);
- }
+// if(array_key_exists('submit', $_POST)) {
+//     orderCreate($_POST['customerInsert'], $_POST['priceHidden']);
+//  }
+
+
 
 ?>
 

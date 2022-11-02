@@ -3,7 +3,7 @@ var customerName = document.getElementById("customerInsert");
 var kilometersAmount = document.getElementById("travelLength");
 var seaRoute = document.getElementById("sea");
 var highPressureRoute = document.getElementById("highPressure");
-var calculate = document.getElementById("calculate");
+// var calculate = document.getElementById("calculate");
 var price = document.getElementById("price");
 var gram = document.getElementById("gram");
 var hiddenPrice = document.getElementById("priceHidden");
@@ -15,7 +15,7 @@ const pokonGram = 2;
 
 document.body.style.backgroundColor = "green";
 
-calculate.setAttribute('onclick', 'distanceCalculator()');
+// calculate.setAttribute('onclick', 'distanceCalculator()');
 seaRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 highPressureRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 kilometersAmount.setAttribute('onchange', 'goldenBorder()');
@@ -44,11 +44,11 @@ function goldenBorder() {
     }
 }
 
-function nameCheckCustomer(){
+function nameCheckCustomer() {
     nameCustomer = customerName.value;
 }
 
-function distanceCalculator() {
+async function distanceCalculator(formattedFormData) {
     // var layoverTotal = document.getElementById("select2Layover");
     var layoverTotal = $('#select2Layover').find(':selected');
     var layoverAmount = 0;
@@ -77,7 +77,7 @@ function distanceCalculator() {
         distanceCalculate = distanceCalculate / 62;
         distanceCalculate = Math.floor(distanceCalculate);
         if (distanceCalculate > 0) {
-            
+
             console.log("I have passed the 0");
             if (seaRoute.checked == true && highPressureRoute.checked == true) {
                 console.log("Both are checked calculating");
@@ -121,10 +121,23 @@ function distanceCalculator() {
 
     console.log(nameCustomer);
     // orderCreate(nameCustomer, priceFinal, distanceFinal);
-    hiddenPrice.value = priceFinal;
+    // hiddenPrice.value = priceFinal;
+    const response = await fetch(
+        'commands_db.php?gram=' + distanceFinal + '&price=' + priceFinal,
+        {
+            method: 'POST',
+            body: formattedFormData
+        }
+    );
+
+    const data = await response.text();
+    console.log(data);
 
 }
+
 bonzaiForm.addEventListener('submit', (event) => {
     console.log("boy");
     event.preventDefault();
+    const formattedFormData = new FormData(bonzaiForm);
+    distanceCalculator(formattedFormData);
 });

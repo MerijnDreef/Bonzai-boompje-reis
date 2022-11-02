@@ -11,6 +11,9 @@ function getAllOrders(){
     return $stmt->fetchAll();
 }
 
+
+echo $_GET["gram"];
+echo $_GET["price"];
 // function createOrder(){
 //     $conn = dbConnect();
 //     $stmt = $conn->prepare("INSERT INTO orders");
