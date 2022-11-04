@@ -3,7 +3,7 @@ var customerName = document.getElementById("customerInsert");
 var kilometersAmount = document.getElementById("travelLength");
 var seaRoute = document.getElementById("sea");
 var highPressureRoute = document.getElementById("highPressure");
-// var calculate = document.getElementById("calculate");
+var calculate = document.getElementById("calculate");
 var price = document.getElementById("price");
 var gram = document.getElementById("gram");
 var hiddenPrice = document.getElementById("priceHidden");
@@ -15,7 +15,7 @@ const pokonGram = 2;
 
 document.body.style.backgroundColor = "green";
 
-// calculate.setAttribute('onclick', 'distanceCalculator()');
+calculate.setAttribute('onclick', 'distanceCalculator()');
 seaRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 highPressureRoute.setAttribute('onclick', 'bonzaiBackgroundColor()');
 kilometersAmount.setAttribute('onchange', 'goldenBorder()');
@@ -48,7 +48,7 @@ function nameCheckCustomer() {
     nameCustomer = customerName.value;
 }
 
-async function distanceCalculator(formattedFormData) {
+function distanceCalculator() {
     // var layoverTotal = document.getElementById("select2Layover");
     var layoverTotal = $('#select2Layover').find(':selected');
     var layoverAmount = 0;
@@ -122,22 +122,22 @@ async function distanceCalculator(formattedFormData) {
     console.log(nameCustomer);
     // orderCreate(nameCustomer, priceFinal, distanceFinal);
     // hiddenPrice.value = priceFinal;
-    const response = await fetch(
-        'commands_db.php?gram=' + distanceFinal + '&price=' + priceFinal,
-        {
-            method: 'POST',
-            body: formattedFormData
-        }
-    );
+    // const response = await fetch(
+    //     'commands_db.php?gram=' + distanceFinal + '&price=' + priceFinal,
+    //     {
+    //         method: 'POST',
+    //         body: formattedFormData
+    //     }
+    // );
 
-    const data = await response.text();
-    console.log(data);
+    // const data = await response.text();
+    // console.log(data);
 
 }
 
 bonzaiForm.addEventListener('submit', (event) => {
     console.log("boy");
-    event.preventDefault();
-    const formattedFormData = new FormData(bonzaiForm);
-    distanceCalculator(formattedFormData);
+    // event.preventDefault();
+    // const formattedFormData = new FormData(bonzaiForm);
+    // distanceCalculator(formattedFormData);
 });

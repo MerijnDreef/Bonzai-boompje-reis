@@ -1,7 +1,6 @@
 <?php
 require "connectionDb.php";
 
-
 function getAllOrders(){
     $conn = dbConnect();
     $stmt = $conn->prepare("SELECT * FROM orders");
@@ -11,10 +10,10 @@ function getAllOrders(){
     return $stmt->fetchAll();
 }
 
-
-echo $_GET["gram"];
-echo $_GET["price"];
-// function createOrder(){
-//     $conn = dbConnect();
-//     $stmt = $conn->prepare("INSERT INTO orders");
-// }
+function createOrder($customer_name, $customer_id, $order_price, $order_gram) {
+    $conn = dbConnect();
+    $stmt = $conn->prepare("INSERT INTO orders (customer_name, customer_id, order_price, order_gram) VALUES (:customer_name, :customer_id, :order_price, :order_gram)");
+    $stmt->execute([':customer_name' => $customer_name, ':customer_id' => $customer_id, ':order_price' => $order_price, ':order_gram' => $order_gram]);
+    return $stmt->errorCode();
+}
+?>
