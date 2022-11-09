@@ -20,8 +20,6 @@ if(array_key_exists('submit', $_POST)) {
     orderCreate($_POST['customerInsert']);
  }
 
-
-
 ?>
 
 <!DOCTYPE html>
